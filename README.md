@@ -8,7 +8,7 @@ Users can create an account, generate websites using AI, preview and edit their 
 
 ## 🌐 Live Demo
 
-* **Frontend:** `https://YOUR-FRONTEND.vercel.app`
+* **Frontend:** `https://webcraft-client.vercel.app`
 * **Backend API:** `https://webcraft-server-gamma.vercel.app`
 
 ---
