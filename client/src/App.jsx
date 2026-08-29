@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import RegisterPage from "./pages/RegisterPage";
-import VerifyEmailPage from "./pages/verifyEmailPage";
+import VerifyEmailPage from "./pages/VerifyEmailPage";
 import LoginPage from "./pages/LoginPage";
 import ForgotPassword from "./pages/ForgotPassword";
 import DashboardPage from "./pages/DashboardPage";

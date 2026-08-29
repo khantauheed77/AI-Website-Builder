@@ -19,6 +19,7 @@ const allowedOrigins = new Set([
   "http://localhost:5174",
   "http://127.0.0.1:5173",
   "http://127.0.0.1:5174",
+  process.env.CLIENT_URL,
 ]);
 
 // Middleware
@@ -30,6 +31,17 @@ app.use(cors({
     credentials : true 
 }))
 app.use(express.json({ limit: "1mb" }))
+
+if (process.env.VERCEL) {
+  app.use(async (_req, _res, next) => {
+    try {
+      await connectDB();
+      next();
+    } catch (error) {
+      next(error);
+    }
+  });
+}
 
 app.use((req, _res, next) => {
   if (req.path.startsWith("/api/auth")) {
@@ -61,4 +73,10 @@ async function startServer() {
   }
 }
 
-startServer();
+if (process.env.VERCEL) {
+  app.get('/api/health', (_req, res) => res.json({ ok: true }));
+} else {
+  startServer();
+}
+
+export default app;
