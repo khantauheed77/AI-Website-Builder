@@ -1,0 +1,106 @@
+import mongoose from "mongoose";
+
+//message Scema
+
+const messageSchema = new mongoose.Schema(
+  {
+    role: {
+      type: String,
+      required: true,
+      enum: ["user", "assistant"],
+    },
+    text: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    _id: false,
+    timestamps: true,
+  },
+);
+
+//project Schema
+const projectSchema = new mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+      index: true,
+    },
+    name: {
+      type: String,
+      required: true,
+      default: "Untitled project",
+      maxlength: 80,
+    },
+    prompt: { type: String, default: "" },
+    enhancedPrompt: { type: String, default: "" },
+    html: { type: String, default: "" },
+    published: { type: Boolean, default: false, index: true },
+    publishedAt: { type: Date, default: null },
+    messages: { type: [messageSchema], default: [] },
+    views: { type: Number, default: 0 },
+    likes: { type: Number, default: 0 },
+    viewedBy: {
+      type: [mongoose.Schema.Types.ObjectId],
+      default: [],
+      select: false,
+    },
+    likedBy: {
+      type: [mongoose.Schema.Types.ObjectId],
+      default: [],
+      select: false,
+    },
+    // For real Vercel deployments
+    deployUrl: { type: String, default: "" },
+    deployedAt: { type: Date, default: null },
+  },
+  {
+    timestamps: true,
+  },
+);
+
+// to return projects full data
+projectSchema.methods.toClient = function () {
+  return {
+    id: this._id.toString(),
+    name: this.name,
+    prompt: this.prompt,
+    enhancedPrompt: this.enhancedPrompt,
+    html: this.html,
+    published: this.published,
+    publishedAt: this.publishedAt,
+    messages: this.messages,
+    views: this.views,
+    likes: this.likes,
+    deployUrl: this.deployUrl,
+    deployedAt: this.deployedAt,
+    createdAt: this.createdAt,
+    updatedAt: this.updatedAt,
+  };
+};
+
+//to return a trim public view of the project
+
+projectSchema.methods.toPublicCard = function ({ withHtml = false }) {
+  const card = {
+    id: this._id.toString(),
+    name: this.name,
+    prompt: this.prompt,
+    publishedAt: this.publishedAt,
+    views: this.views,
+    likes: this.likes,
+    author:
+      this.populate("user") && this.user?.name ? this.user?.name : "Unknown",
+  };
+  if (withHtml) {
+    card.html = this.html;
+  }
+  return card;
+};
+
+const Project = mongoose.model("Project", projectSchema);
+export { Project };
+export default Project;
