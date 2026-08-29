@@ -1,8 +1,8 @@
-# 🧠 WebCraft — AI-Powered Website Builder
+# 🚀 WebCraft — AI-Powered SaaS Website Builder
 
-**WebCraft is an AI-powered website builder that transforms natural-language ideas into complete, customizable websites.**
+**WebCraft is an AI-powered SaaS platform that transforms natural-language ideas into complete, customizable websites.**
 
-Users can describe their website idea, generate a website using AI, preview and edit the result, manage projects, publish websites to the community, export projects to GitHub, and deploy them to Vercel.
+Users can create an account, generate websites using AI, preview and edit their projects, manage credit-based usage, publish projects to the community, export them to GitHub, and deploy them to Vercel.
 
 ---
 
@@ -15,21 +15,30 @@ Users can describe their website idea, generate a website using AI, preview and 
 
 ## 📌 About the Project
 
-**WebCraft** is a full-stack AI-powered website builder built using the **MERN stack** and integrated with multiple third-party services.
+**WebCraft** is a full-stack **SaaS (Software as a Service) application** built with the **MERN stack** and integrated with AI services and multiple third-party APIs.
 
-The platform allows users to turn a simple natural-language description into a functional website without manually writing the initial code.
+The platform provides users with an end-to-end workflow for creating websites without starting from a blank codebase.
 
-For example, a user can provide a prompt such as:
+Users can describe their requirements using natural language, for example:
 
 ```text
-Create a modern portfolio website for a full-stack developer
-with a dark theme, projects section, skills section,
-and a contact form.
+Create a modern SaaS landing page for an AI productivity
+platform with a hero section, pricing cards, features,
+testimonials, and a responsive design.
 ```
 
-WebCraft processes the prompt through its backend AI workflow and generates the website, which can then be previewed and modified by the user.
+WebCraft processes the request through its AI-powered backend and generates the website, which users can preview and refine.
 
-Once a project is ready, users can save it, publish it to the community, export it to GitHub, or deploy it directly to Vercel.
+After generating a website, users can:
+
+* Save and manage their projects
+* Edit and regenerate websites
+* Publish projects to the community
+* Like other users' projects
+* Export projects to GitHub
+* Deploy websites to Vercel
+
+The platform follows a SaaS-based model where AI generation is managed through **user credits and paid credit packages**.
 
 ---
 
@@ -40,70 +49,73 @@ Once a project is ready, users can save it, publish it to the community, export 
 * Generate websites from natural-language prompts
 * AI-generated HTML/CSS/JavaScript
 * AI-assisted website creation and modification
-* Support for Gemini and Groq
+* Gemini and Groq integration
 * Regenerate and refine generated websites
+* Support for different website types, including SaaS-style websites
 * Live preview of generated websites
 
-## 🛠️ Project & Website Management
-
-* Create website projects
-* Save generated websites
-* View and manage projects through a dashboard
-* Preview generated websites
-* Edit generated website content
-* Manage project history
-
-## 🔐 Authentication & Account Security
+## 👤 User Accounts & Authentication
 
 * User registration
-* Email verification using OTP
-* Login verification codes
-* Password recovery using OTP
 * JWT-based authentication
+* Email verification
+* Login verification
+* Password recovery
 * Protected API routes
-* Secure server-side credential management
+* User-specific projects and credits
 
 ## 📧 Email Verification & OTP
 
 WebCraft uses **Brevo** as its transactional email service for authentication and account recovery.
 
-The system supports:
+The system provides:
 
-* Email verification during registration
-* Login verification codes
-* Password recovery codes
-* 10-minute OTP expiration
-* Single-use OTP verification
+* ✉️ Email verification during registration
+* 🔐 Login verification codes
+* 🔑 Password recovery codes
+* ⏱️ 10-minute OTP expiration
+* 🔒 Single-use OTP verification
 
-## 🌎 Community
+## 📊 SaaS Dashboard & Project Management
+
+* User dashboard
+* Create and manage website projects
+* Save generated websites
+* View project history
+* Preview generated websites
+* Edit and regenerate projects
+* Manage user-specific resources
+
+## 🌎 Community Platform
 
 * Publish projects to the community
 * Browse published websites
 * Like community projects
 * Discover websites created by other users
 
-## 💳 Credits & Payments
+## 💳 Credit-Based SaaS Model
 
-* Credit-based AI generation system
+* Credit-based AI generation
 * Multiple credit packages
-* Stripe checkout
+* Stripe checkout integration
 * Payment verification
 * Credit management
 * Payment/history tracking
+* Usage-based AI generation
 
 ## 🐙 GitHub Integration
 
 * Export generated projects to GitHub
-* Create GitHub repositories
+* Create repositories through the GitHub API
 * Push generated website files
-* Automate project export through the GitHub API
+* Automate project export
 
 ## ▲ Vercel Deployment
 
 * Deploy generated websites directly to Vercel
 * Vercel API integration
 * Automated deployment workflow
-* Generate production deployments from WebCraft projects
+* Production deployment of generated websites
 
 ## 🖼️ Image Integration
 
@@ -148,12 +160,12 @@ The system supports:
 | Vercel API    | Website deployment           |
 | Unsplash      | Image integration            |
 
-## Deployment
+## Infrastructure & Deployment
 
-| Platform      | Purpose                         |
-| ------------- | ------------------------------- |
-| Vercel        | Frontend and backend deployment |
-| MongoDB Atlas | Cloud database                  |
+| Platform      | Purpose                                  |
+| ------------- | ---------------------------------------- |
+| Vercel        | Frontend, backend and website deployment |
+| MongoDB Atlas | Cloud database                           |
 
 ---
 
@@ -191,47 +203,82 @@ WebCraft/
 
 ---
 
-# 🤖 AI Website Generation
+# 🤖 AI Website Generation Flow
 
 AI website generation is the core functionality of WebCraft.
 
-The generation workflow can be summarized as:
+```text
+                         User
+                           │
+                           ▼
+                    Natural-Language Prompt
+                           │
+                           ▼
+                    React Frontend
+                           │
+                           ▼
+                      Express API
+                           │
+                  ┌────────┴────────┐
+                  │                 │
+                  ▼                 ▼
+               Gemini             Groq
+                  │                 │
+                  └────────┬────────┘
+                           ▼
+                   Generated Website
+                           │
+                           ▼
+                      Live Preview
+                           │
+                 ┌─────────┼─────────┐
+                 ▼         ▼         ▼
+               Edit       Save    Regenerate
+                           │
+                           ▼
+                        MongoDB
+```
+
+AI generation is integrated into the SaaS credit system, allowing the platform to control and manage AI usage per user.
+
+---
+
+# 💰 SaaS Credit & Payment Architecture
+
+WebCraft follows a credit-based SaaS model.
+
+Users receive credits that can be consumed when generating websites through the AI system.
 
 ```text
 User
  │
  ▼
-Website Prompt
+Credit Balance
  │
- ▼
-React Frontend
+ ├── Sufficient Credits ──► AI Generation
+ │                              │
+ │                              ▼
+ │                         Credits Used
  │
- ▼
-Express API
- │
- ▼
-AI Provider
- ┌───────────────┐
- │               │
- ▼               ▼
-Gemini          Groq
- │               │
- └───────┬───────┘
-         ▼
-Generated Website
-         │
-         ▼
-    Live Preview
-         │
-    ┌────┴────┐
-    ▼         ▼
-   Edit      Save
-              │
-              ▼
-           MongoDB
+ └── Insufficient Credits
+             │
+             ▼
+       Credit Packages
+             │
+             ▼
+      Stripe Checkout
+             │
+             ▼
+          Payment
+             │
+             ▼
+      Payment Verification
+             │
+             ▼
+       Credits Added
 ```
 
-The generated website can then be modified, published, exported to GitHub, or deployed to Vercel.
+This provides a usage-based model for managing AI generation costs within the SaaS platform.
 
 ---
 
@@ -248,47 +295,48 @@ The authentication system includes:
 * Email verification
 * Login verification
 * Password recovery
-* Server-side authentication middleware
+* Authentication middleware
 
-The general authentication flow is:
+### Authentication Flow
 
 ```text
 User
  │
  ▼
-Authentication Request
+Registration / Login
  │
  ▼
-Express API
+OTP Verification
+ │
+ ▼
+Authentication
+ │
+ ▼
+JWT Token
+ │
+ ▼
+Protected API Request
  │
  ▼
 Authentication Middleware
  │
  ▼
-JWT Verification
- │
- ▼
-Protected Controller
- │
- ▼
-Database / Application Service
+Authorized Controller
 ```
 
-Only authenticated users can access protected project, community, payment, and deployment functionality where authorization is required.
+User-specific resources such as projects and credits are associated with authenticated accounts.
 
 ---
 
 # 📧 Email Verification & OTP System
 
-WebCraft uses **Brevo** to send one-time password (OTP) codes to users through email.
+WebCraft uses **Brevo** to send one-time password (OTP) codes through email.
 
 Brevo is used for:
 
 * ✉️ Email verification during registration
 * 🔐 Login verification codes
 * 🔑 Password recovery codes
-
-When an OTP is requested, the backend generates the verification code and sends it to the user's registered email through the Brevo API.
 
 ### OTP Flow
 
@@ -327,59 +375,45 @@ Backend Verification
 
 Each OTP:
 
-* ⏱️ Expires after **10 minutes**
-* 🔒 Can only be used **once**
-* 📧 Is delivered through Brevo's transactional email API
+* Expires after **10 minutes**
+* Can only be used **once**
+* Is delivered through Brevo's transactional email API
 
 Brevo credentials and sender information are stored securely as server-side environment variables and are never included directly in the source code.
 
 ---
 
-# 💳 Credit & Payment System
+# 🌎 Community & Publishing
 
-WebCraft uses a credit-based system for AI website generation.
-
-Users can purchase credit packages through Stripe.
-
-### Payment Flow
+WebCraft includes a community layer where users can share generated projects.
 
 ```text
-User
- │
- ▼
-Select Credit Package
- │
- ▼
-Stripe Checkout
- │
- ▼
-Payment
- │
- ▼
-Backend Verification
- │
- ▼
-Credits Added
- │
- ▼
-AI Website Generation
- │
- ▼
-Credits Used
+User Project
+     │
+     ▼
+Publish Project
+     │
+     ▼
+Community
+     │
+ ┌───┴────┐
+ ▼        ▼
+Browse   Like
+Projects Projects
 ```
 
-Stripe handles payment processing while the backend manages payment verification, transaction history, and user credits.
+Published projects can be discovered and liked by other users.
 
 ---
 
 # 🐙 GitHub Integration
 
-WebCraft integrates with the **GitHub API** to allow users to export generated projects.
+WebCraft integrates with the **GitHub API** to export generated websites.
 
 ### Export Flow
 
 ```text
-Generated Project
+WebCraft Project
        │
        ▼
 GitHub Integration
@@ -397,7 +431,7 @@ Commit / Push
 GitHub Repository
 ```
 
-This allows users to continue developing their AI-generated websites outside of WebCraft.
+This allows users to continue developing their generated websites outside the WebCraft platform.
 
 ---
 
@@ -423,9 +457,11 @@ Build & Deployment
 Production Website
 ```
 
-This creates a direct workflow from:
+The workflow allows users to move from:
 
-**AI Generation → Preview → Save → Deploy**
+**Prompt → AI Generation → Preview → Edit → Deploy**
+
+without manually configuring a deployment pipeline.
 
 ---
 
@@ -433,25 +469,21 @@ This creates a direct workflow from:
 
 WebCraft integrates with the **Unsplash API** to provide images that can be used within generated websites.
 
-The image workflow is:
-
 ```text
-Website Generation
-       │
-       ▼
-Image Requirement
-       │
-       ▼
-Unsplash API
-       │
-       ▼
-Image Result
-       │
-       ▼
-Generated Website
+AI / Website Requirement
+          │
+          ▼
+    Image Search
+          │
+          ▼
+     Unsplash API
+          │
+          ▼
+      Image Result
+          │
+          ▼
+   Generated Website
 ```
-
-This allows generated websites to include relevant external imagery without requiring users to manually source every image.
 
 ---
 
@@ -459,7 +491,7 @@ This allows generated websites to include relevant external imagery without requ
 
 WebCraft uses **MongoDB** with **Mongoose** for persistent application data.
 
-The database is responsible for storing information related to:
+The database stores application information such as:
 
 * Users
 * Website projects
@@ -469,26 +501,27 @@ The database is responsible for storing information related to:
 * Credits
 * Payments
 * Project history
+* OTP/authentication-related data
 
-MongoDB Atlas can be used as the production database.
+MongoDB Atlas can be used for production database hosting.
 
 ---
 
 # 📡 Backend API
 
-The WebCraft backend follows a REST API architecture.
+The backend follows a REST API architecture.
 
 Major API areas include:
 
-| Area           | Purpose                                                 |
-| -------------- | ------------------------------------------------------- |
-| Authentication | Registration, login, verification and password recovery |
-| Projects       | Create and manage website projects                      |
-| AI             | Website generation and AI operations                    |
-| Community      | Published projects and likes                            |
-| Payments       | Credit packages and Stripe payments                     |
-| GitHub         | Project export                                          |
-| Vercel         | Website deployment                                      |
+| Area           | Purpose                                                     |
+| -------------- | ----------------------------------------------------------- |
+| Authentication | Registration, login, OTP verification and password recovery |
+| Projects       | Create and manage website projects                          |
+| AI             | Website generation and AI operations                        |
+| Community      | Published projects and likes                                |
+| Payments       | Credit packages and Stripe payments                         |
+| GitHub         | Project export                                              |
+| Vercel         | Website deployment                                          |
 
 ### Health Check
 
@@ -504,58 +537,71 @@ Example response:
 }
 ```
 
-The health endpoint can be used to verify that the deployed backend is running correctly.
-
 ---
 
-# 🔄 Application Workflow
-
-The complete WebCraft workflow can be summarized as:
+# 🔄 Complete Application Flow
 
 ```text
-                         WebCraft
-                            │
-                            ▼
-                    Register / Login
-                            │
-                            ▼
-                        Dashboard
-                            │
-                            ▼
-                      Create Project
-                            │
-                            ▼
-                    Enter AI Prompt
-                            │
-                            ▼
-                    AI Website Generation
-                            │
-                            ▼
-                      Live Preview
-                            │
-                 ┌──────────┼──────────┐
-                 ▼          ▼          ▼
-               Edit       Save      Regenerate
-                            │
-                            ▼
-                      Project Management
-                            │
-              ┌─────────────┼─────────────┐
-              ▼             ▼             ▼
-           Publish       GitHub        Vercel
-              │           Export       Deploy
-              ▼             │             │
-         Community          ▼             ▼
-                       GitHub Repo   Live Website
+                         WebCraft SaaS
+                              │
+                              ▼
+                     Register / Login
+                              │
+                              ▼
+                       Email / OTP
+                              │
+                              ▼
+                          Dashboard
+                              │
+                              ▼
+                        Create Project
+                              │
+                              ▼
+                      Enter AI Prompt
+                              │
+                              ▼
+                      Check Credits
+                              │
+                    ┌─────────┴─────────┐
+                    │                   │
+              Credits Available     No Credits
+                    │                   │
+                    ▼                   ▼
+              AI Generation       Buy Credits
+                    │                   │
+                    │                Stripe
+                    │                   │
+                    │                   ▼
+                    │              Add Credits
+                    │                   │
+                    └─────────┬─────────┘
+                              ▼
+                       Generated Website
+                              │
+                              ▼
+                         Live Preview
+                              │
+                   ┌──────────┼──────────┐
+                   ▼          ▼          ▼
+                 Edit       Save      Regenerate
+                              │
+                              ▼
+                       Project Management
+                              │
+                ┌─────────────┼─────────────┐
+                ▼             ▼             ▼
+             Publish       GitHub        Vercel
+                │           Export        Deploy
+                ▼             │             │
+            Community         ▼             ▼
+                         GitHub Repo   Live Website
 ```
 
 ---
 
-# 📁 Environment Variables
+# ⚙️ Environment Variables
 
-WebCraft requires environment variables for its database, authentication, AI providers, email service, payments, and deployment integrations.
-
-## Server Environment
+## Server
 
 Create:
 
@@ -584,7 +630,7 @@ STRIPE_SECRET_KEY=your_stripe_secret_key
 CLIENT_URL=http://localhost:5173
 ```
 
-## Client Environment
+## Client
 
 Create:
 
@@ -598,7 +644,7 @@ VITE_API_URL=http://localhost:4000/api
 
 > **Never commit `.env` files or secret credentials to GitHub.**
 
-For production, configure environment variables through the Vercel project settings.
+For production deployments, configure environment variables through Vercel.
 
 ---
 
@@ -611,7 +657,11 @@ Before running WebCraft locally, make sure you have:
 * Node.js 18 or newer
 * npm
 * MongoDB / MongoDB Atlas
-* Required API credentials
+* Required AI API credentials
+* Stripe credentials
+* Brevo credentials
+* GitHub credentials
+* Vercel credentials
 
 ---
 
@@ -637,10 +687,8 @@ npm install
 
 ## 3. Install Frontend Dependencies
 
-Open another terminal or return to the project root:
-
 ```bash
-cd client
+cd ../client
 
 npm install
 ```
@@ -649,7 +697,7 @@ npm install
 
 ## 4. Configure Environment Variables
 
-Create the required `.env` files using the configuration described in the **Environment Variables** section.
+Create the required `.env` files using the configuration described above.
 
 ---
 
@@ -661,7 +709,7 @@ cd server
 npm start
 ```
 
-For development with automatic reload:
+For development:
 
 ```bash
 npm run dev
@@ -698,28 +746,28 @@ http://localhost:5173
 ## Client
 
 ```bash
-npm run dev       # Start the Vite development server
-npm run build     # Build the production frontend
+npm run dev       # Start Vite development server
+npm run build     # Build production frontend
 npm run lint      # Run ESLint
-npm run preview   # Preview the production build
+npm run preview   # Preview production build
 ```
 
 ## Server
 
 ```bash
-npm start         # Start the Express API
-npm run dev       # Start the API with automatic reload
+npm start         # Start Express API
+npm run dev       # Start API with automatic reload
 ```
 
 ---
 
 # ☁️ Deployment
 
-WebCraft can be deployed as separate frontend and backend projects using **Vercel**.
+WebCraft can be deployed using **Vercel** with the frontend and backend configured as separate projects.
 
-## Backend Deployment
+## Backend
 
-Create a Vercel project with:
+Configure the Vercel project:
 
 ```text
 Root Directory: server
@@ -736,9 +784,9 @@ server/api/index.js
 
 as its serverless entry point.
 
-Configure the required backend environment variables in Vercel.
+Configure all required backend environment variables in the Vercel project.
 
-After deployment, test:
+After deployment, verify the backend:
 
 ```text
 https://YOUR-BACKEND.vercel.app/api/health
@@ -752,11 +800,9 @@ Expected response:
 }
 ```
 
----
+## Frontend
 
-## Frontend Deployment
-
-Create a separate Vercel project with:
+Create a separate Vercel project:
 
 ```text
 Root Directory: client
@@ -771,15 +817,13 @@ Configure:
 VITE_API_URL=https://YOUR-BACKEND.vercel.app/api
 ```
 
-in the frontend environment variables.
-
-Configure the backend with:
+For the backend:
 
 ```env
 CLIENT_URL=https://YOUR-FRONTEND.vercel.app
 ```
 
-After modifying environment variables, redeploy the affected project.
+Redeploy the affected project after changing environment variables.
 
 ---
 
@@ -800,7 +844,7 @@ Never commit:
 * Brevo credentials
 * Unsplash credentials
 
-Use `.env.example` to document required variable names without exposing actual credentials.
+Use `.env.example` to document required environment variable names without exposing actual credentials.
 
 If a secret is accidentally exposed, revoke it immediately and generate a replacement.
 
@@ -808,22 +852,24 @@ If a secret is accidentally exposed, revoke it immediately and generate a replac
 
 # 🎯 Project Goals
 
-WebCraft was developed to demonstrate the implementation of a modern AI-powered full-stack application involving:
+WebCraft was developed to demonstrate the implementation of a production-oriented AI SaaS application involving:
 
 * AI-assisted website generation
-* MERN stack architecture
-* REST API development
+* SaaS application architecture
+* MERN stack development
+* REST API design
 * JWT authentication
 * OTP-based email verification
 * Password recovery
 * MongoDB database design
-* Credit-based systems
+* Credit-based usage management
 * Stripe payment integration
 * Transactional email services
-* Third-party API integration
-* GitHub automation
+* Multiple AI provider integration
+* GitHub API automation
 * Vercel deployment automation
-* Community-based project sharing
+* Community-based project publishing
+* Third-party API integration
 * Full-stack cloud deployment
 
 ---
@@ -837,9 +883,10 @@ Potential future enhancements include:
 * 🕐 Project version history
 * 🌐 Custom domain support
 * 🤝 Collaborative website editing
-* 🧠 Support for additional AI models
+* 🧠 Additional AI model providers
 * 📦 Reusable website templates
-* 📊 Advanced usage analytics
+* 📊 Advanced SaaS usage analytics
+* 📈 Subscription-based plans
 * 🔍 Improved community discovery
 * 🚀 Additional deployment providers
 
